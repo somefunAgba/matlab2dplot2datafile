@@ -1,0 +1,39 @@
+\documentclass[tikz]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{pgfplots}
+\usepackage{grffile}
+\pgfplotsset{compat=newest}
+\pgfplotsset {tick scale binop=\times}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+
+\usepackage{eulervm}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[xmode=normal, ymode=normal,
+			at={(0cm,0cm)},
+			grid=major,
+			tick label style={font=\footnotesize},
+			width = 6cm, height=4.48cm,
+			title style={font=\textsc\footnotesize\bfseries\color{magenta}},
+			title={Matlab2DPlot2DataFile},
+			xlabel style={font=\footnotesize\bfseries\color{white!15!black}},
+			xlabel={Time (sec)},
+			ylabel style={font=\footnotesize\bfseries\color{white!15!black}},
+			ylabel={Amplitude},
+			enlarge x limits=false,
+			]
+\addplot[thin,dashed,color=cyan, forget plot] 
+		table [x=x,y=y, col sep=comma]{datafile4.txt};
+\addplot[thin,loosely dotted,color=purple, forget plot] 
+		table [x=x,y=z, col sep=comma]{datafile4.txt};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
